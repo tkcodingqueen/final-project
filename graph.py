@@ -15,12 +15,15 @@ print(df.info())
 
 df = df[:-1]
 
-df.plot(x='Unnamed: 2', y='High °F', marker ='.')
+plt.plot(df['Unnamed: 2'], df['High °F'], marker ='.', color='m')
+for i in range(len(df)):
+    #i looked this up so i dont rlly get it but it works...
+    plt.annotate(df['High °F'][i], (df['Unnamed: 2'][i], df['High °F'][i]), textcoords="offset points", xytext=(0,10), ha='center')
+
 plt.xticks(range(0, 12), ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
 plt.xlabel('Month')
 plt.ylabel('High Temperature (°F)')
 plt.title('Average High Temperatures in Palo Alto, CA')
-
 
 plt.show()
 
