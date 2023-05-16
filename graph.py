@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 
 session = requests.Session()
-response = session.get('https://www.currentresults.com/Weather/California/Places/palo-alto-temperatures-by-month-average.php', headers={'User-Agent': 'Mozilla/5.0'})
+response = session.get('https://www.currentresults.com/Weather/California/Places/palo-alto-temperatures-by-month-average.php', 
+headers={'User-Agent': 'Mozilla/5.0'})
 
 print(response.status_code)
 
@@ -17,8 +18,8 @@ df = df[:-1]
 
 plt.plot(df['Unnamed: 2'], df['High °F'], marker ='.', color='m')
 for i in range(len(df)):
-    #i looked this up so i dont rlly get it but it works...
-    plt.annotate(df['High °F'][i], (df['Unnamed: 2'][i], df['High °F'][i]), textcoords="offset points", xytext=(0,10), ha='center')
+    plt.annotate(df['High °F'][i], (df['Unnamed: 2'][i], df['High °F'][i]), 
+    textcoords="offset points", xytext=(0,10), ha='center')
 
 plt.xticks(range(0, 12), ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
 plt.xlabel('Month')
